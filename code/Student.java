@@ -4,16 +4,32 @@ import java.awt.Color;
 import javax.swing.*;
 
 
-public class Student {
+public class Student extends Parent {
     
+    private String fullname;
     private String firstname;
     private String lastname;
     private String username;
     private String password;
+    private int money;
+    private int numclasses;
+    private int average;
     private int ID;
     
     JFrame frame;
     JList list;
+    
+    
+//    public Student(String firstname,String lastname,int ID){
+//    
+//    this.lastname=lastname;
+//    this.firstname=firstname;
+//    this.ID=ID;
+//    money=0;
+//    
+//    }
+    
+    
     public void gui1(){
         frame=new JFrame();
         frame.setSize(600, 600);
@@ -74,17 +90,42 @@ public class Student {
     }
     
     
-    public void reservClass(){}
-    
-    
     public void changeUserName(String username){
         this.username=username;
     }
+    
     
     public void changePassword(String password){
         this.password=password;
     }
     
     
+    public void increaseMoney(){}
+    
+    
+    public void reserveClass(){}
+    
+    
+    public void reserveFood(){}
+    
+    
+    public void calculateAvrage(){}
+    
+    
+    public void checkNumClasses(){}
+    
+    
+    public String studentShowInfo(){
+        return null;
+    }
+    
+    
+    public void setGrade(String className,int grade){
+        
+    }
+    
+    public String getStudnetFullName(){
+        return firstname+" "+lastname;
+    }
     
 }
