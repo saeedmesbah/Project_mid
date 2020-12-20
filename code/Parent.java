@@ -6,6 +6,7 @@ public class Parent {
     private ArrayList<Lesson> lesson;
     private ArrayList<Professor> professor;
     private ArrayList<Student> student;
+    private Admin admin;
     
     
     public Parent(){
@@ -35,6 +36,10 @@ public class Parent {
     
     public void addProfessorToList(Professor professor){
         this.professor.add(professor);
+    }
+    
+    public void addAdmin(Admin admin){
+        this.admin=admin;
     }
     
     
