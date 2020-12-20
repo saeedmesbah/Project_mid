@@ -1,18 +1,27 @@
 
 import java.awt.*;
 import javax.swing.*;
+import java.util.*;
 
-
-public class Professor {
+public class Professor extends Parent{
     
     private String firstname;
     private String lastname;
     private String username;
     private String password;
+    private ArrayList<Lesson> lesson;
     private int ID;
     
     JFrame frame;
     JList list;
+    
+    
+    public Professor() {
+        
+        lesson=new ArrayList<Lesson>();
+        
+    }
+    
     
     public void gui1(){
         frame=new JFrame();
@@ -79,6 +88,35 @@ public class Professor {
     
     public void changePassword(String password){
         this.password=password;
+    }
+    
+    
+    public void addClass(){}
+    
+    
+    public void endClass(String name){
+        for(Lesson i:lesson){
+            if(i.getName().equals(name)){
+                lesson.remove(i);
+                super.removeClass(i);
+            }
+        }
+    }
+    
+    
+    public void giveGrade(String className,String studentName,int grade){
+        
+        for(Lesson i:lesson){
+            if(i.getName().equals(className)){
+                i.addGradeToStudent(studentName, grade);
+            }
+        }
+        
+    }
+    
+    
+    public String professorShowInfo(){
+        return null;
     }
     
     
