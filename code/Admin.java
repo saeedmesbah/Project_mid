@@ -3,7 +3,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.util.*;
 
-public class Admin {
+public class Admin extends Parent{
     
     private String firstname;
     private String lastname;
@@ -11,13 +11,15 @@ public class Admin {
     private String password;
     private ArrayList<Student> students;
     private ArrayList<Professor> professors;
+    private ArrayList<ArrayList<String>> food;
+    
     private int ID;
     
     
     JFrame frame;
     JList list;
     
-    public Admin(){
+    public Admin() {
         students=new ArrayList<Student>();
         professors=new ArrayList<Professor>();
     }
@@ -94,13 +96,24 @@ public class Admin {
     }
     
     
-    public void addFoodPlan(){}
+    public void addNewFoodPlan(String foodName,String foodPrice){
+        for(ArrayList i:food){
+            i.add(foodName);
+            i.add(foodPrice);
+        }
+    }
     
     
-    public void addStudent(){}
+    public void addStudent(){
+        Student s=new Student();
+        super.addStudnetToList(s);
+    }
     
     
-    public void addProfessor(){}
+    public void addProfessor(){
+        Professor p=new Professor();
+        super.addProfessorToList(p);
+    }
     
     
 }
