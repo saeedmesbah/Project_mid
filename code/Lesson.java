@@ -34,7 +34,12 @@ public class Lesson extends Parent{
     
     
     public void addStudent(Student student){
-        this.student.add(student);
+        if(capacity<this.student.size()){
+            this.student.add(student);
+        }
+        else{
+            // class is full
+        }
     }
     
     public void addGradeToStudent(String studnetName,int grade){
@@ -48,6 +53,10 @@ public class Lesson extends Parent{
     
     public String getName(){
         return name;
+    }
+    
+    public Integer getNumber(){
+        return number;
     }
     
 }
