@@ -2,6 +2,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.*;
+import java.util.*;
 
 
 public class Student extends Parent {
@@ -15,6 +16,8 @@ public class Student extends Parent {
     private int numclasses;
     private int average;
     private int ID;
+    private ArrayList<Hold> lessonInfoHolder;
+    private HashMap<String,String> food;
     
     JFrame frame;
     JList list;
@@ -97,19 +100,43 @@ public class Student extends Parent {
     
     public void changePassword(String password){
         this.password=password;
+        
+        
     }
     
     
-    public void increaseMoney(){}
+    public void increaseMoney(int money){
+        this.money+=money;
+    }
     
     
-    public void reserveClass(){}
+    public void reserveClass(String className,int number,String professor){
+        Hold h=new Hold(className,professor,number,-1);
+        lessonInfoHolder.add(h);
+    }
+    
+    public void reserveFood(int price,String food,String day){
+        if(price>money){
+            // not enught money
+        }
+        else{
+            money-=price;
+            this.food.put(day, food);
+        }
+    }
     
     
-    public void reserveFood(){}
-    
-    
-    public void calculateAvrage(){}
+    public Integer calculateAvrage(){
+        
+        int sum=0,counter=0;
+        for(Hold i:lessonInfoHolder){
+            if(i.getLessonGrade()!=-1){
+                sum+=i.getLessonGrade()*i.getLessonNumber();
+                counter++;
+            }
+        }
+        return sum/counter;
+    }
     
     
     public void checkNumClasses(){}
@@ -121,7 +148,11 @@ public class Student extends Parent {
     
     
     public void setGrade(String className,int grade){
-        
+       for(Hold i:lessonInfoHolder){
+           if(i.getLessonName().equals(className)){
+               
+           }
+       }
     }
     
     public String getStudnetFullName(){
