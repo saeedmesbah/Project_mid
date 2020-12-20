@@ -1,6 +1,7 @@
 
 import java.awt.*;
 import javax.swing.*;
+import java.util.*;
 
 public class Admin {
     
@@ -8,11 +9,19 @@ public class Admin {
     private String lastname;
     private String username;
     private String password;
+    private ArrayList<Student> students;
+    private ArrayList<Professor> professors;
     private int ID;
     
     
     JFrame frame;
     JList list;
+    
+    public Admin(){
+        students=new ArrayList<Student>();
+        professors=new ArrayList<Professor>();
+    }
+    
     
     public void gui1(){
         frame=new JFrame();
@@ -75,8 +84,6 @@ public class Admin {
         frame.add(panel);
     }
     
-    public void addFoodPlan(){}
-    
     
     public void changeUserName(String username){
         this.username=username;
@@ -85,6 +92,16 @@ public class Admin {
     public void changePassword(String password){
         this.password=password;
     }
+    
+    
+    public void addFoodPlan(){}
+    
+    
+    public void addStudent(){}
+    
+    
+    public void addProfessor(){}
+    
     
 }
 
