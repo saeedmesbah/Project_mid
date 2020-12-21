@@ -19,6 +19,7 @@ public class Student extends Parent {
     private ArrayList<Hold> lessonInfoHolder;
     private HashMap<String,String> food;
     
+    
     JFrame frame;
     JList list;
     
@@ -150,7 +151,7 @@ public class Student extends Parent {
     public void setGrade(String className,int grade){
        for(Hold i:lessonInfoHolder){
            if(i.getLessonName().equals(className)){
-               
+               i.setLessonGrade(grade);
            }
        }
     }
