@@ -11,20 +11,21 @@ public class Control {
         Admin a=new Admin();
         Student st=new Student();
         Professor p=new Professor();
-        
-        if(s.equals("Admin")){
-            a.gui1();
-        }
-        else if(s.equals("Student")){
-            st.gui1();
-        }
-        else if(s.equals("Professor")){
-            p.gui1();
-        }
-        else{
-            System.out.println("hello");
-            JOptionPane.showMessageDialog(null, "Wrong selection");
-        }
+        //while(true){
+            if(s.equals("Admin")){
+                a.gui1();
+            }
+            else if(s.equals("Student")){
+                st.gui1();
+            }
+            else if(s.equals("Professor")){
+                p.gui1();
+            }
+            else{
+                System.out.println("hello");
+                JOptionPane.showMessageDialog(null, "Wrong selection");
+            }
+        //}
     }
     
     
