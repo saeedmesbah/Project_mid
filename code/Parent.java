@@ -49,6 +49,9 @@ public class Parent {
     
     public void removeClass(Lesson lesson){
         this.lesson.remove(lesson);
+        for(Student i:student){
+            i.removeStudentLesson(lesson.getName());
+        }
     }
     
 }
