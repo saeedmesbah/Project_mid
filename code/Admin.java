@@ -11,7 +11,8 @@ public class Admin extends Parent{
     private String password;
     private ArrayList<Student> students;
     private ArrayList<Professor> professors;
-    private ArrayList<ArrayList<String>> food;
+    private HashMap<String,String> foodSchedule;
+    private HashMap<String,Integer> foodPrice;
     
     private int ID;
     
@@ -96,11 +97,9 @@ public class Admin extends Parent{
     }
     
     
-    public void addNewFoodPlan(String foodName,String foodPrice){
-        for(ArrayList i:food){
-            i.add(foodName);
-            i.add(foodPrice);
-        }
+    public void addNewFoodPlan(String foodName,String foodDay,Integer foodPrice){
+        foodSchedule.put(foodDay, foodName);
+        this.foodPrice.put(foodName, foodPrice);
     }
     
     
