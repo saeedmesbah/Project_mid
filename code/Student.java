@@ -1,6 +1,9 @@
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
 import javax.swing.*;
 import java.util.*;
 
@@ -36,7 +39,7 @@ public class Student extends Parent {
     
     public void gui1(){
         frame=new JFrame();
-        frame.setSize(600, 600);
+        frame.setSize(1000, 1000);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -80,14 +83,45 @@ public class Student extends Parent {
         frame.setJMenuBar(bar);
         
         // adding list on west
-        JPanel panel1=new JPanel();
-        String[] menulist={"Edit profile","financial","sellect food","sellect class"};
-        list =new JList(menulist);
-        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        list.setBackground(Color.red);
-        panel1.add(list);
-        panel1.setBackground(Color.red);
+        JPanel panel1=new JPanel(new GridLayout(7,1));
+        
+        JButton b1=new JButton("خانه");
+        
+        JButton b2=new JButton("شخصی");
+        
+        JButton b3=new JButton("تغییر مشخصات");
+        
+        JButton b4=new JButton("دروس");
+        
+        JButton b5=new JButton("مالی");
+        
+        JButton b6=new JButton("رزرو غذا");
+        
+        JButton b7=new JButton("انتخاب کلاس");
+        
+        panel1.add(b1);
+        panel1.add(b2);
+        panel1.add(b3);
+        panel1.add(b4);
+        panel1.add(b5);
+        panel1.add(b6);
+        panel1.add(b7);
         panel.add(panel1,BorderLayout.EAST);
+        panel.setBackground(Color.lightGray);
+        JLabel label=new JLabel("دانشجوی محترم به صحفه پرتال خود خوش امدید ");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setOpaque(true);
+        label.setFont(new Font("",Font.BOLD,30));
+        
+        javax.swing.border.Border border=BorderFactory.createLineBorder(Color.black,2);
+        label.setBorder(border);
+        
+        int labelWidth=label.getPreferredSize().width+0;
+        int labelHeight=label.getPreferredSize().height+0;
+        
+        label.setPreferredSize(new Dimension(labelWidth,labelHeight));
+        
+        panel.add(label,BorderLayout.CENTER);
         
         frame.add(panel);
         
@@ -158,6 +192,15 @@ public class Student extends Parent {
     
     public String getStudnetFullName(){
         return firstname+" "+lastname;
+    }
+    
+    public void removeStudentLesson(String className){
+        for(Hold i:lessonInfoHolder){
+            if(i.getLessonName().endsWith(className)){
+                lessonInfoHolder.remove(i);
+                calculateAvrage();
+            }
+        }
     }
     
 }
