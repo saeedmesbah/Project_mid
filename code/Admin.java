@@ -1,5 +1,7 @@
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.util.*;
 
@@ -28,7 +30,7 @@ public class Admin extends Parent{
     
     public void gui1(){
         frame=new JFrame();
-        frame.setSize(600, 600);
+        frame.setSize(1000, 1000);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -60,6 +62,12 @@ public class Admin extends Parent{
         JMenuItem item4=new JMenuItem("User  Name: "+username);
         JMenuItem item5=new JMenuItem("Edit");
         JMenuItem item6=new JMenuItem("Exit");
+        item6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
         
         // adding Items to menu
         menu2.add(item4);
@@ -74,15 +82,46 @@ public class Admin extends Parent{
         frame.setJMenuBar(bar);
         
         
-        // adding list on west
-        JPanel panel1=new JPanel();
-        String[] menulist={"Edit profile","Edit food plan","class classes","add user"};
-        list =new JList(menulist);
-        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        list.setBackground(Color.red);
-        panel1.add(list);
-        panel1.setBackground(Color.red);
+        // adding Bottons on west
+        JPanel panel1=new JPanel(new GridLayout(7,1));
+        
+        JButton b1=new JButton("خانه");
+        
+        JButton b2=new JButton("مشخصات");
+        
+        JButton b3=new JButton("برنامه غذایی");
+        
+        JButton b4=new JButton("مشاهده دانشجوها");
+        
+        JButton b5=new JButton("مشاهده اساتید");
+        
+        JButton b6=new JButton("اضافه کردن دانشجو");
+        
+        JButton b7=new JButton("اضافه کردن استاد");
+        
+        panel1.add(b1);
+        panel1.add(b2);
+        panel1.add(b3);
+        panel1.add(b4);
+        panel1.add(b5);
+        panel1.add(b6);
+        panel1.add(b7);
         panel.add(panel1,BorderLayout.EAST);
+        panel.setBackground(Color.lightGray);
+        JLabel label=new JLabel("ادمین محترم به صحفه پرتال خود خوش امدید ");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setOpaque(true);
+        label.setFont(new Font("",Font.BOLD,30));
+        
+        javax.swing.border.Border border=BorderFactory.createLineBorder(Color.black,2);
+        label.setBorder(border);
+        
+        int labelWidth=label.getPreferredSize().width+0;
+        int labelHeight=label.getPreferredSize().height+0;
+        
+        label.setPreferredSize(new Dimension(labelWidth,labelHeight));
+        
+        panel.add(label,BorderLayout.CENTER);
         
         frame.add(panel);
     }
