@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.util.*;
 
@@ -25,6 +27,7 @@ public class Student extends Parent {
     
     JFrame frame;
     JList list;
+    JPanel panel;
     
     
 //    public Student(String firstname,String lastname,int ID){
@@ -35,17 +38,21 @@ public class Student extends Parent {
 //    money=0;
 //    
 //    }
+        
+    public Student(){
+        panel=new JPanel();
+        panel.setLayout(new BorderLayout());  
+    }
     
     
     public void gui1(){
         frame=new JFrame();
-        frame.setSize(1000, 1000);
+        frame.setSize(1020, 1000);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         
-        JPanel panel=new JPanel();
-        panel.setLayout(new BorderLayout());
+        
         //panel.setBackground(Color.red);
         
         
@@ -86,18 +93,67 @@ public class Student extends Parent {
         JPanel panel1=new JPanel(new GridLayout(7,1));
         
         JButton b1=new JButton("خانه");
+        b1.setFont(new Font("",Font.BOLD,17));
+        b1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                home();
+            }
+        }); 
         
         JButton b2=new JButton("شخصی");
+        b2.setFont(new Font("",Font.BOLD,17));
+        b2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                profile();
+            }
+        }); 
         
         JButton b3=new JButton("تغییر مشخصات");
+        b3.setFont(new Font("",Font.BOLD,17));
+        b3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                editProfile();
+            }
+        }); 
         
         JButton b4=new JButton("دروس");
+        b4.setFont(new Font("",Font.BOLD,17));
+        b4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                lessons();
+            }
+        }); 
         
         JButton b5=new JButton("مالی");
+        b5.setFont(new Font("",Font.BOLD,17));
+        b5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                financial();
+            }
+        }); 
         
         JButton b6=new JButton("رزرو غذا");
+        b6.setFont(new Font("",Font.BOLD,17));
+        b6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reserveFood();
+            }
+        }); 
         
         JButton b7=new JButton("انتخاب کلاس");
+        b7.setFont(new Font("",Font.BOLD,17));
+        b7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reserveClass();
+            }
+        }); 
         
         panel1.add(b1);
         panel1.add(b2);
@@ -108,7 +164,7 @@ public class Student extends Parent {
         panel1.add(b7);
         panel.add(panel1,BorderLayout.EAST);
         panel.setBackground(Color.lightGray);
-        JLabel label=new JLabel("دانشجوی محترم به صحفه پرتال خود خوش امدید ");
+        JLabel label=new JLabel("دانشجوی محترم به صحفه پرتال خود خوش آمدید ");
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setOpaque(true);
         label.setFont(new Font("",Font.BOLD,30));
@@ -201,6 +257,128 @@ public class Student extends Parent {
                 calculateAvrage();
             }
         }
+    }
+    
+    public void home(){
+        
+        BorderLayout layout = (BorderLayout)panel.getLayout();
+        panel.remove(layout.getLayoutComponent(BorderLayout.CENTER));
+        panel.repaint();
+        System.out.println("kljniun;ibi");
+        
+        JLabel label=new JLabel("home ");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setOpaque(true);
+        label.setFont(new Font("",Font.BOLD,30));
+        
+        javax.swing.border.Border border2=BorderFactory.createLineBorder(Color.black,2);
+        label.setBorder(border2);
+        panel.add(label,BorderLayout.CENTER);
+    }
+    
+    public void profile(){
+        
+        BorderLayout layout = (BorderLayout)panel.getLayout();
+        panel.remove(layout.getLayoutComponent(BorderLayout.CENTER));
+        panel.repaint();
+        System.out.println("kljniun;ibi");
+        
+        JLabel label=new JLabel("profile ");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setOpaque(true);
+        label.setFont(new Font("",Font.BOLD,30));
+        
+        javax.swing.border.Border border2=BorderFactory.createLineBorder(Color.black,2);
+        label.setBorder(border2);
+        panel.add(label,BorderLayout.CENTER);
+    }
+    
+    
+    public void editProfile(){
+        
+        BorderLayout layout = (BorderLayout)panel.getLayout();
+        panel.remove(layout.getLayoutComponent(BorderLayout.CENTER));
+        panel.repaint();
+        System.out.println("kljniun;ibi");
+        
+        JLabel label=new JLabel("editProfile ");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setOpaque(true);
+        label.setFont(new Font("",Font.BOLD,30));
+        
+        javax.swing.border.Border border2=BorderFactory.createLineBorder(Color.black,2);
+        label.setBorder(border2);
+        panel.add(label,BorderLayout.CENTER);
+    }
+    
+    public void lessons(){
+        
+        BorderLayout layout = (BorderLayout)panel.getLayout();
+        panel.remove(layout.getLayoutComponent(BorderLayout.CENTER));
+        panel.repaint();
+        System.out.println("kljniun;ibi");
+        
+        JLabel label=new JLabel("lessons ");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setOpaque(true);
+        label.setFont(new Font("",Font.BOLD,30));
+        
+        javax.swing.border.Border border2=BorderFactory.createLineBorder(Color.black,2);
+        label.setBorder(border2);
+        panel.add(label,BorderLayout.CENTER);
+    }
+    
+    
+    public void financial(){
+        
+        BorderLayout layout = (BorderLayout)panel.getLayout();
+        panel.remove(layout.getLayoutComponent(BorderLayout.CENTER));
+        panel.repaint();
+        System.out.println("kljniun;ibi");
+        
+        JLabel label=new JLabel("financial ");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setOpaque(true);
+        label.setFont(new Font("",Font.BOLD,30));
+        
+        javax.swing.border.Border border2=BorderFactory.createLineBorder(Color.black,2);
+        label.setBorder(border2);
+        panel.add(label,BorderLayout.CENTER);
+    }
+    
+    public void reserveFood(){
+        
+        BorderLayout layout = (BorderLayout)panel.getLayout();
+        panel.remove(layout.getLayoutComponent(BorderLayout.CENTER));
+        panel.repaint();
+        System.out.println("kljniun;ibi");
+        
+        JLabel label=new JLabel("reserveFood ");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setOpaque(true);
+        label.setFont(new Font("",Font.BOLD,30));
+        
+        javax.swing.border.Border border2=BorderFactory.createLineBorder(Color.black,2);
+        label.setBorder(border2);
+        panel.add(label,BorderLayout.CENTER);
+    }
+    
+    
+    public void reserveClass(){
+        
+        BorderLayout layout = (BorderLayout)panel.getLayout();
+        panel.remove(layout.getLayoutComponent(BorderLayout.CENTER));
+        panel.repaint();
+        System.out.println("kljniun;ibi");
+        
+        JLabel label=new JLabel("reserveClass ");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setOpaque(true);
+        label.setFont(new Font("",Font.BOLD,30));
+        
+        javax.swing.border.Border border2=BorderFactory.createLineBorder(Color.black,2);
+        label.setBorder(border2);
+        panel.add(label,BorderLayout.CENTER);
     }
     
 }
